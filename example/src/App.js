@@ -98,6 +98,14 @@ return (
             </code>
           </pre>
 
+          <div className="p-2 mb-2 flex flex-col flex-center">
+            <h3>Example: Nord Themed</h3>
+            <p>Selected Date: {value.toString()}</p>
+            <div className="rounded-sm nord-colors p-2 d-inline-block">
+              <Datepicker value={value} onChange={handleDateChange} />
+            </div>
+          </div>
+
           <h2>License</h2>
           <p>MIT &copy; Reaper 2021</p>
         </article>

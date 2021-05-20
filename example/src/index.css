@@ -30,6 +30,10 @@ body {
   display: flex;
 }
 
+.flex-col {
+  flex-direction: column;
+}
+
 .flex-center {
   align-items: center;
   justify-content: center;
@@ -51,6 +55,23 @@ pre {
 
 pre > code {
   font-family: monospace;
+}
+
+.nord-colors {
+  --fg: #eceff4 !important;
+  --fg-light: #e5e9f0 !important;
+  --fg-lighter: #d8dee9 !important;
+  --bg: #2e3440 !important;
+  --bg-lighter: #3b4252 !important;
+  background: var(--bg);
+}
+
+.d-inline-block {
+  display: inline-block;
+}
+
+.rounded-sm {
+  border-radius: 8px;
 }
 
 @media (prefers-color-scheme: dark) {
