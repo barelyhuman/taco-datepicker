@@ -1,0 +1,58 @@
+{
+  "name": "@barelyhuman/taco-datepicker",
+  "version": "0.0.0",
+  "description": "Datepicker component extracted from Taco project",
+  "license": "MIT",
+  "repository": "barelyhuman/taco-datepicker",
+  "author": {
+    "name": "Reaper",
+    "email": "ahoy@barelyhuman.dev",
+    "url": "https://reaper.im"
+  },
+  "type": "module",
+  "exports": "./dist/index.js",
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "build": "babel 'source' --out-dir=dist",
+    "prepare": "npm run build"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "react",
+    "component",
+    "components",
+    "datepicker",
+    "date",
+    "picker",
+    "react datepicker"
+  ],
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "@types/react": "^16.9.2",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
+  },
+  "peerDependencies": {
+    "react": ">=16.7"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-react"
+    ],
+    "plugins": [
+      "styled-jsx/babel"
+    ]
+  },
+  "dependencies": {
+    "classnames": "^2.3.1",
+    "date-fns": "^2.21.3",
+    "styled-jsx": "^3.4.4"
+  }
+}
