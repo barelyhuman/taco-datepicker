@@ -25,7 +25,7 @@ const MONTHMAP = [
 ];
 const DAYMAP = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-function Datepicker({ value: inputValue, onChange, ...props }) {
+function Datepicker({ value: inputValue, onChange, mini, ...props }) {
   const [value, setValue] = useState(inputValue || new Date());
   const [currentMonth, setCurrentMonth] = useState();
   const [currentYear, setCurrentYear] = useState();
@@ -99,27 +99,45 @@ function Datepicker({ value: inputValue, onChange, ...props }) {
 
   return (
     <>
-      <div className="taco-datepicker--container">
-        <div className="taco-datepicker--row">
-          <div className="taco-datepicker--month-box" onClick={handlePrevYear}>
-            {currentYear - 1}
+      <div className={`taco-datepicker--container ${mini ? "mini" : ""}`}>
+        <div className="taco-datepicker--row taco-datepicker--month-year-container">
+          <div className="taco-datepicker--month-year-wrapper">
+            <div
+              className="taco-datepicker--month-box"
+              onClick={handlePrevYear}
+            >
+              {currentYear - 1}
+            </div>
+            <div className="taco-datepicker--month-box active">
+              {currentYear}
+            </div>
+            <div
+              className="taco-datepicker--month-box"
+              onClick={handleNextYear}
+            >
+              {currentYear + 1}
+            </div>
           </div>
-          <div className="taco-datepicker--month-box active">{currentYear}</div>
-          <div className="taco-datepicker--month-box" onClick={handleNextYear}>
-            {currentYear + 1}
-          </div>
-          <div className="taco-datepicker--month-box" onClick={handlePrevMonth}>
-            {MONTHMAP[currentMonth - 1]
-              ? MONTHMAP[currentMonth - 1]
-              : MONTHMAP[MONTHMAP.length - 1]}
-          </div>
-          <div className="taco-datepicker--month-box active">
-            {MONTHMAP[currentMonth]}
-          </div>
-          <div className="taco-datepicker--month-box" onClick={handleNextMonth}>
-            {MONTHMAP[currentMonth + 1]
-              ? MONTHMAP[currentMonth + 1]
-              : MONTHMAP[0]}
+          <div className="taco-datepicker--month-year-wrapper">
+            <div
+              className="taco-datepicker--month-box"
+              onClick={handlePrevMonth}
+            >
+              {MONTHMAP[currentMonth - 1]
+                ? MONTHMAP[currentMonth - 1]
+                : MONTHMAP[MONTHMAP.length - 1]}
+            </div>
+            <div className="taco-datepicker--month-box active">
+              {MONTHMAP[currentMonth]}
+            </div>
+            <div
+              className="taco-datepicker--month-box"
+              onClick={handleNextMonth}
+            >
+              {MONTHMAP[currentMonth + 1]
+                ? MONTHMAP[currentMonth + 1]
+                : MONTHMAP[0]}
+            </div>
           </div>
         </div>
         <div className="taco-datepicker--row">
@@ -174,7 +192,7 @@ function Datepicker({ value: inputValue, onChange, ...props }) {
           })}
         </div>
         <div className="taco-datepicker--spacer"></div>
-        <div className="taco-datepicker--row">
+        <div className="taco-datepicker--row taco-datepicker--action-container">
           <button
             onClick={(e) => handleGoTo(new Date())}
             className="taco-datepicker--action secondary"
@@ -190,8 +208,8 @@ function Datepicker({ value: inputValue, onChange, ...props }) {
             border: 2px solid var(--fg);
             padding: 8px;
             border-radius: 8px;
-            min-width: 400px;
-            max-width: 450px;
+            min-height: 530px;
+            max-height: 530px;
             font-family: Arial;
             display: flex;
             color: var(--fg);
@@ -199,10 +217,40 @@ function Datepicker({ value: inputValue, onChange, ...props }) {
             justify-content: center;
             flex-direction: column;
           }
+
+          .taco-datepicker--container.mini {
+            font-size: 14px;
+            line-height: 14px;
+            width: 265px;
+            min-height: 335px;
+          }
+
+          .taco-datepicker--container.mini .taco-datepicker--day-box {
+            height: 24px;
+            width: 24px;
+            margin: 4px;
+          }
+
+          .taco-datepicker--container.mini .taco-datepicker--month-box {
+            height: 24px;
+            width: auto;
+            margin: 4px;
+          }
+
+          .taco-datepicker--container.mini .taco-datepicker--month-box.active {
+            font-size: 16px;
+          }
+
+          .taco-datepicker--container.mini .taco-datepicker--action {
+            min-width: auto;
+            padding: 4px 8px;
+          }
+
           .taco-datepicker--row {
             display: flex;
             flex-wrap: wrap;
           }
+
           .taco-datepicker--day-box {
             margin: 8px;
             height: 40px;
@@ -235,7 +283,7 @@ function Datepicker({ value: inputValue, onChange, ...props }) {
             align-items: center;
             justify-content: center;
             margin: 8px;
-            color: var(--fg-light);
+            color: var(--fg-lighter);
           }
 
           .taco-datepicker--month-box.active {
@@ -284,6 +332,20 @@ function Datepicker({ value: inputValue, onChange, ...props }) {
 
           .taco-datepicker--spacer {
             margin: 8px;
+          }
+
+          .taco-datepicker--action-container {
+            margin-top: auto;
+          }
+
+          .taco-datepicker--month-year-container {
+            display: flex;
+            flex-wrap: wrap;
+          }
+
+          .taco-datepicker--month-year-wrapper {
+            display: flex;
+            flex-wrap: wrap;
           }
         `}
       </style>
