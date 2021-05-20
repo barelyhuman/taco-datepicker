@@ -69,7 +69,7 @@ return (
             </code>
           </pre>
 
-          <h2>Themeing</h2>
+          <h2>Theming</h2>
           <p>
             The picker was built with css variables in mind and uses the
             predefined variables on the root to decide it's color scheme. The
