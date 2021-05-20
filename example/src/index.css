@@ -17,6 +17,7 @@
 
 body {
   color: var(--fg);
+  background: var(--bg);
 }
 
 .container-boundaries {
