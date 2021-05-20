@@ -39,14 +39,14 @@ function Datepicker({ value: inputValue, onChange, ...props }) {
     setCurrentYear(dateObject.year);
   }, [value]);
 
-  const handleOnChange = () => {
-    onChange && onChange(createDateObject(value));
+  const handleOnChange = (date) => {
+    onChange && onChange(createDateObject(date));
   };
 
   const handleSelectDate = (year, month, day) => {
     const dateConst = new Date(year, month, day);
+    handleOnChange(dateConst);
     setValue(dateConst);
-    handleOnChange();
   };
 
   const handleNextYear = () => {
@@ -73,8 +73,8 @@ function Datepicker({ value: inputValue, onChange, ...props }) {
   };
 
   const handleGoTo = (date) => {
+    handleOnChange(date);
     setValue(date);
-    handleOnChange();
   };
 
   const numberOfDaysInMonth = getNumberOfDays(currentYear, currentMonth);
