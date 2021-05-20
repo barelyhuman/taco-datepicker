@@ -24,11 +24,9 @@ function App() {
           <h2>Install</h2>
           <pre>
             <code>
-              {
-                `npm i @barelyhuman/taco-datepicker 
+              {`npm i @barelyhuman/taco-datepicker 
 # or 
-yarn add @barelyhuman/taco-datepicker`
-              }
+yarn add @barelyhuman/taco-datepicker`}
             </code>
           </pre>
 
