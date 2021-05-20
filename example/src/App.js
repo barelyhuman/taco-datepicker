@@ -40,9 +40,17 @@ yarn add @barelyhuman/taco-datepicker`}
           </ul>
           <h2>Demo</h2>
           <div className="p-2 mb-2">
+            <h3>Normal Sized (for inline selections)</h3>
             <p>Selected Date: {value.toString()}</p>
             <Datepicker value={value} onChange={handleDateChange} />
           </div>
+
+          <div className="p-2 mb-2">
+            <h3>Mini Sized (for modal based datepickers)</h3>
+            <p>Selected Date: {value.toString()}</p>
+            <Datepicker mini value={value} onChange={handleDateChange} />
+          </div>
+
           <h2>Usage</h2>
           <p>
             <small>
@@ -64,10 +72,56 @@ setValue(new Date(dateObj.year, dateObj.month, dateObj.date));
 return (
     <p>Selected Date: {value.toString()}</p>
     <Datepicker value={value} onChange={handleDateChange} />
+    // mini prop for the mini version as shown above
+    <Datepicker mini value={value} onChange={handleDateChange} />
   );
 }`}
             </code>
           </pre>
+
+          <h2>Props</h2>
+          <section>
+            <h3>
+              <code>value : Date</code>
+            </h3>
+            <p>
+              The value for the datepicker to sync with , the default value is{" "}
+              <code>new Date()</code> if nothing is provided.
+            </p>
+            <h3>
+              <code>onChange : function(dateObj){}</code>
+            </h3>
+            <p>
+              Function callback called on each date change and the callback is
+              provided with a dateObj.
+            </p>
+            <h3>
+              <code>mini : boolean</code>
+            </h3>
+            <p>
+              Boolean prop to decide if the mini calendar styles are to be used.
+              Helpful if you plan to use the picker in a small modal
+            </p>
+            <h3 id="type-dateobj">
+              <code>type dateObj</code>
+            </h3>
+            <pre>
+              <code>
+                {`
+  {
+    date // date 1-31
+    isoDay // iso day of the week 1 - 7
+    month // month 1-12
+    year // year in XXXX format
+    hours // hours 0 - 23
+    minutes // mins 0 - 59
+    seconds // seconds 0 - 59
+    timeOfDay // string enum of am | pm
+  }
+  `}
+              </code>
+            </pre>
+          </section>
 
           <h2>Theming</h2>
           <p>
@@ -103,6 +157,9 @@ return (
             <p>Selected Date: {value.toString()}</p>
             <div className="rounded-sm nord-colors p-2 d-inline-block">
               <Datepicker value={value} onChange={handleDateChange} />
+              <div className="flex flex-center p-2">
+                <Datepicker mini value={value} onChange={handleDateChange} />
+              </div>
             </div>
           </div>
 

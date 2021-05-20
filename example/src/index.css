@@ -53,14 +53,21 @@ pre {
   border-radius: 8px;
 }
 
+code {
+  background: var(--bg-lighter);
+  padding: 4px;
+  border-radius: 4px;
+}
+
 pre > code {
   font-family: monospace;
+  background: transparent;
 }
 
 .nord-colors {
   --fg: #eceff4 !important;
   --fg-light: #e5e9f0 !important;
-  --fg-lighter: #d8dee9 !important;
+  --fg-lighter: #4C566A !important;
   --bg: #2e3440 !important;
   --bg-lighter: #3b4252 !important;
   background: var(--bg);
