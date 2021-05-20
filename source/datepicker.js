@@ -26,9 +26,13 @@ const MONTHMAP = [
 const DAYMAP = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 function Datepicker({ value: inputValue, onChange, ...props }) {
-  const [value, setValue] = useState(inputValue);
+  const [value, setValue] = useState(inputValue || new Date());
   const [currentMonth, setCurrentMonth] = useState();
   const [currentYear, setCurrentYear] = useState();
+
+  useEffect(() => {
+    setValue(inputValue);
+  }, [inputValue]);
 
   useEffect(() => {
     if (!value) {
