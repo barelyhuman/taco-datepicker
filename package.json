@@ -1,6 +1,6 @@
 {
   "name": "@barelyhuman/taco-datepicker",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Datepicker component extracted from Taco project",
   "license": "MIT",
   "repository": "barelyhuman/taco-datepicker",
