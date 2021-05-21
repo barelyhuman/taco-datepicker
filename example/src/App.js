@@ -152,7 +152,7 @@ return (
             </code>
           </pre>
 
-          <div className="p-2 mb-2 flex flex-col flex-center">
+          <div className="p-2 mb-2">
             <h3>Example: Nord Themed</h3>
             <p>Selected Date: {value.toString()}</p>
             <div className="rounded-sm nord-colors p-2 d-inline-block">

@@ -48,6 +48,7 @@ body {
 }
 
 pre {
+  overflow: auto;
   background-color: var(--bg-light);
   padding: 16px;
   border-radius: 8px;
