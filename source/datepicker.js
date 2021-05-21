@@ -210,6 +210,7 @@ function Datepicker({ value: inputValue, onChange, mini, ...props }) {
             border-radius: 8px;
             min-height: 530px;
             max-height: 530px;
+            min-width: 500px;
             font-family: Arial;
             display: flex;
             color: var(--fg);
@@ -222,6 +223,7 @@ function Datepicker({ value: inputValue, onChange, mini, ...props }) {
             font-size: 14px;
             line-height: 14px;
             width: 265px;
+            min-width: 265px;
             min-height: 335px;
           }
 
